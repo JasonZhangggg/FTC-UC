@@ -10,7 +10,6 @@ import org.firstinspires.ftc.teamcode.vision.UGRectDetector;
 @TeleOp(name = "TeleOp", group = "UltimateGoal")
 //@Disabled
 public class UGTeleop extends LinearOpMode {
-
     DriveTrainStrafe robot = new DriveTrainStrafe();
     IntakeSubsystem intake = new IntakeSubsystem();
     ShooterSubsystem shooter = new ShooterSubsystem();
