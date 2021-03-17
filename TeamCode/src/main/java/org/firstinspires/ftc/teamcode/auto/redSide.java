@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.auto;
+    package org.firstinspires.ftc.teamcode.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -32,51 +32,57 @@ public class redSide extends LinearOpMode {
         ringNum = vision.getStack().toString();
         telemetry.addData("ringNum", ringNum);
         telemetry.update();
-        robot.encoderDriveStrafe(0.6, 16, "right", 5);
+        robot.encoderDriveStrafe(0.4, 30, "right", 4);
+        robot.encoderDriveStrafe(0.5, 2, "left", 5);
+
         if(ringNum.equals("ZERO")){
-            robot.encoderDrive(0.6, 0.6, 48, 48, 5);
-            arm.move(-150);
+            robot.encoderDrive(0.6, 0.6, 55, 55, 5);
+            robot.encoderDriveStrafe(0.4, 10, "right", 1.5);
+            arm.move(-180);
             sleep(1000);
             robot.encoderDrive(0.6, 0.6, -6, -6, 5);
-            arm.move(20);
-            sleep(1000);
+            arm.rotateForward();
+            sleep(500);
+            robot.encoderDriveStrafe(0.4, 5, "left", 1.5);
             robot.encoderDrive(0.6, 0.6, -42, 42 , 5);
+            robot.encoderDrive(0.6, 0.6, -6, -6, 5);
 
         }
         else if(ringNum.equals("ONE")){
             robot.encoderDrive(0.6, 0.6, 98, 98, 5);
-            robot.encoderDrive(0.6, 0.6, -26, 26, 5);
+            robot.encoderDriveStrafe(0.4, 10, "right", 1.5);
+            robot.encoderDriveStrafe(0.4, 5, "left", 1.5);
+            robot.encoderDrive(0.6, 0.6, -24, 24, 5); // 24 instead
             robot.encoderDrive(0.6, 0.6, 6, 6, 5);
-            arm.move(-150);
+            arm.move(-180);
             sleep(1000);
             robot.encoderDrive(0.6, 0.6, -6, -6, 5);
-            arm.move(20);
-            sleep(1000);
-            robot.encoderDrive(0.6, 0.6, -26, 26, 5);
-            robot.encoderDrive(0.6, 0.6, 32, 32, 5);
+            arm.rotateForward();
+            sleep(500);
+            robot.encoderDrive(0.6, 0.6, -18, 18, 5);
+            robot.encoderDrive(0.6, 0.6, 36, 36, 5);
         }
         else if(ringNum.equals("FOUR")){
-            robot.encoderDrive(0.6, 0.6, 96, 96, 5);
-            arm.move(-150);
+            robot.encoderDrive(0.5, 0.5, 101, 101, 5);
+            robot.encoderDriveStrafe(0.4, 10, "right", 1.5);
+            arm.move(-180);
             sleep(1000);
-            robot.encoderDrive(0.6, 0.6, -50, -50, 5);
-            arm.move(20);
-            sleep(1000);
+            robot.encoderDrive(0.5, 0.5, -42, -42, 5);
+            arm.rotateForward();
+            sleep(500);
+            robot.encoderDriveStrafe(0.4, 5, "left", 1.5);
             robot.encoderDrive(0.6, 0.6, -42, 42, 5);
-
         }
-        robot.encoderDriveStrafe(0.6, 46, "right", 5);
-        shooter.setPower(0.85);
+        robot.encoderDriveStrafe(0.4, 30, "left", 3);
+        robot.encoderDriveStrafe(0.4, 18, "right", 5);
+        shooter.setPower(0.87);
         shooter.turnOn();
         sleep(250);
-        robot.encoderDrive(0.6, 0.6, 0,0, 0);
         shoot();
         shoot();
-        robot.encoderDrive(0.6, 0.6, 2,-2, 5);
         shoot();
-        robot.encoderDrive(0.6, 0.6, 2, -2, 5);
         shoot();
-        robot.encoderDrive(0.6, 0.6, -20,-20, 5);
+        robot.encoderDrive(0.6, 0.6, -10,-10, 5);
     }
     public void shoot(){
         shooter.trigger();

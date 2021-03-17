@@ -107,16 +107,16 @@ public class UGTeleop extends LinearOpMode {
             }*/
 
             if (buttonClick(gamepad2.right_bumper, 1)) {
-                shooter.setPower(shooter.getPower() + 0.05);
+                shooter.setPower(shooter.getPower() + 0.025);
             }
             if (buttonClick(gamepad2.left_bumper, 0)) {
-                shooter.setPower(shooter.getPower() - 0.05);
+                shooter.setPower(shooter.getPower() - 0.025);
             }
             if(buttonClick(gamepad1.x, 4)){
-                arm.rotateForward();
+                arm.move(-70);
             }
             else if(buttonClick(gamepad1.y, 5)){
-                arm.rotateBackward();
+                arm.move(-180);
             }
             telemetry.addData("Rings", vision.getStack());
             telemetry.addData("Power", shooter.getPower());
